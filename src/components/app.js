@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {fetchProducts} from '../actions/index'
+import { connect } from 'react-redux';
+import  ProductGrid  from './productGrid';
+import { fetchProducts }  from '../actions/index'
 
 class App extends Component {
-    componentWillMount(){
-        this.props.fetchProducts();
-    }
+  componentWillMount() {
+    this.props.fetchProducts();
+  }
   render() {
       const {
           isLoading,
           products,
       } = this.props;
+
       if (isLoading) {
           return <h2>Loading </h2>;
       }
     return (
       <div>
-          <h1>order menu</h1>
-          {products.map(product =><h3>{product.name}</h3>)}
+          <h1>Order Menu</h1>
+          <ProductGrid
+              products = {products}
+            />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state)=>({
-    isProductsLoading: state.product.isLoading,
-        products: state.product.products
+    isLoading: state.product.isLoading,
+    products: state.product.products,
 });
 
 const mapDispatchToProps = {
