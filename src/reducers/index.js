@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-
+import produceReducer from './produceReducer';
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+    product : produceReducer
 });
 
 export default rootReducer;
