@@ -35,6 +35,7 @@ const ProductGrid = ({ products , addToCart}) => (
         <button onClick={() => addToCart(product)}>
             Add to Cart
         </button>
+
       </ProductWrapper>
     ))}
   </Wrapper>

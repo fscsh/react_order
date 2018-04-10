@@ -25,6 +25,8 @@ const CartTable = ({ cart }) => (
             <th>Item Name</th>
             <th>Price</th>
             <th>quantity</th>
+            <th>add</th>
+            <th>delete</th>
           </tr>
       </thead>
       <tbody>
@@ -33,6 +35,13 @@ const CartTable = ({ cart }) => (
                 <td> {item.product.name}</td>
                 <td> {item.product.price}</td>
                 <td> {item.quantity}</td>
+                <td> <button onClick={() => addToCart(product)}>
+                    Add
+                </button></td>
+                <td><button onClick={() => deleteToCart(product)}>
+                    Delete
+                </button>
+            </td>
               </tr>
           ))}
       </tbody>

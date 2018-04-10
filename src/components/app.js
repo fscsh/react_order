@@ -23,7 +23,6 @@ addToCart = (product) =>{
           cart,
       } = this.props;
 
-      {console.log(this.props);}
 
       if (isLoading) {
           return <h2>Loading </h2>;
