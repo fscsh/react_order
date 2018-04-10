@@ -1,11 +1,11 @@
 import {put ,fork, takeLatest, call } from 'redux-saga/effects';
 import { FETCH_CART, ADD_TO_CART } from '../../actions/actionType';
 import { fetchCartSuccess, fetchCartFailure ,addToCartSuccess , addToCartFailure} from '../../actions/index';
-import * as cartApi from '../../lib/index';
+import * as cartApi from '../../lib/cartApi';
 
 export function* fetchCart(action) {
   try {
-    const cart = yield call(cartApi.fetchAll);
+    const cart = yield call(cartApi.fetch);
     yield put(fetchCartSuccess(cart));
   } catch(error) {
     yield put(fetchCartFailure(error));

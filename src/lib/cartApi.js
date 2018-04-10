@@ -3,7 +3,7 @@
  }
 
  const getFromLocalStorage = ()=>{
-     const emptyCart = {Item : []};
+     const emptyCart = {items : [] };
      const cart = JSON.parse(localStorage.getItem('cart'));
      return cart || emptyCart;
  }
@@ -19,9 +19,9 @@ export const addToCart = async(productId, quantity = 1) =>{
     const newItem = {productId, quantity};
     const newCart = {
         ...cart,
-        item:[
+        items:[
             ...cart.items,
-            newItem
+            newItem,
         ],
     }
     saveToLocalStorage(newCart);

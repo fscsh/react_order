@@ -15,31 +15,31 @@ export const fetchProductsFailure = (error) => ({
     })
 
 export const fetchCart = ()=>({
-        type:FETCH_CART
+        type: FETCH_CART,
     })
 
 export const fetchCartSuccess = (cart)=>({
-        type:FETCH_CART_SUCCESS,
+        type: FETCH_CART_SUCCESS,
         cart,
     })
 
 export const fetchCartFailure = (error)=>({
-        type:FETCH_CART_FAILURE,
+        type: FETCH_CART_FAILURE,
         error,
     })
 
 export const addToCart = (productId, quantity)=>({
-        type:ADD_TO_CART,
+        type: ADD_TO_CART,
         productId,
         quantity
     })
 
 export const addToCartSuccess = (cart)=>({
-        type:ADD_TO_CART_SUCCESS,
+        type: ADD_TO_CART_SUCCESS,
         cart
     })
 
 export const addToCartFailure = (error)=>({
-        type:ADD_TO_CART_FAILURE,
-        error
+        type: ADD_TO_CART_FAILURE,
+        error,
     })

@@ -6,7 +6,7 @@ const initialState = {
     error: null,
 }
 
-export default(state = initialState,action)=>{
+export default(state = initialState, action)=>{
     switch (action.type) {
         case FETCH_CART:
         case ADD_TO_CART:
@@ -16,13 +16,15 @@ export default(state = initialState,action)=>{
             }
         case FETCH_CART_SUCCESS:
         case ADD_TO_CART_SUCCESS:
+            console.log(action);
             return{
                 ...state,
                 isLoading:false,
-                cart:action.cart,
+                cart: action.cart
             }
         case FETCH_CART_FAILURE:
         case ADD_TO_CART_FAILURE:
+            console.log(action);
             return {
                 ...state,
                 isLoading:false,
