@@ -1,4 +1,5 @@
-import{ FETCH_PRODUCTS ,FETCH_PRODUCTS_SUCCESS , FETCH_PRODUCTS_FAILURE, FETCH_CART, FETCH_CART_SUCCESS , FETCH_CART_FAILURE, ADD_TO_CART, ADD_TO_CART_SUCCESS, ADD_TO_CART_FAILURE } from './actionType';
+import{ FETCH_PRODUCTS ,FETCH_PRODUCTS_SUCCESS , FETCH_PRODUCTS_FAILURE, FETCH_CART, FETCH_CART_SUCCESS , FETCH_CART_FAILURE, ADD_TO_CART, ADD_TO_CART_SUCCESS, ADD_TO_CART_FAILURE,DELETE_TO_CART,
+DELETE_TO_CART_SUCCESS, DELETE_TO_CART_FAILURE} from './actionType';
 
 export const fetchProducts = () => ({
         type: FETCH_PRODUCTS,
@@ -43,3 +44,18 @@ export const addToCartFailure = (error)=>({
         type: ADD_TO_CART_FAILURE,
         error,
     })
+export const deleteToCart = (productId, quantity)=>({
+            type: DELETE_TO_CART,
+            productId,
+            quantity
+        })
+
+export const deleteToCartSuccess = (cart)=>({
+            type: DELETE_TO_CART_SUCCESS,
+            cart
+        })
+
+export const deleteToCartFailure = (error)=>({
+            type: DELETE_TO_CART_FAILURE,
+            error,
+        })

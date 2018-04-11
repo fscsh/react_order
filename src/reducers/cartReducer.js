@@ -1,4 +1,4 @@
-import{ FETCH_CART, FETCH_CART_SUCCESS , FETCH_CART_FAILURE, ADD_TO_CART, ADD_TO_CART_SUCCESS, ADD_TO_CART_FAILURE } from '../actions/actionType';
+import{ FETCH_CART, FETCH_CART_SUCCESS , FETCH_CART_FAILURE, ADD_TO_CART, ADD_TO_CART_SUCCESS, ADD_TO_CART_FAILURE, DELETE_TO_CART, DELETE_TO_CART_SUCCESS, DELETE_TO_CART_FAILURE } from '../actions/actionType';
 
 const initialState = {
     isLoading: false,
@@ -10,12 +10,14 @@ export default(state = initialState, action)=>{
     switch (action.type) {
         case FETCH_CART:
         case ADD_TO_CART:
+        case DELETE_TO_CART:
             return {
                 ...state,
                 isLoading: true,
             }
         case FETCH_CART_SUCCESS:
         case ADD_TO_CART_SUCCESS:
+        case DELETE_TO_CART_SUCCESS:
             console.log(action);
             return{
                 ...state,
@@ -24,6 +26,7 @@ export default(state = initialState, action)=>{
             }
         case FETCH_CART_FAILURE:
         case ADD_TO_CART_FAILURE:
+        case DELETE_TO_CART_FAILURE:
             console.log(action);
             return {
                 ...state,

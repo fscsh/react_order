@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProductGrid  from './productGrid';
 import CartTable from './cartTable';
-import { fetchProducts, fetchCart ,addToCart }  from '../actions/index';
+import { fetchProducts, fetchCart ,addToCart, deleteToCart }  from '../actions/index';
 
 
 
@@ -15,7 +15,9 @@ class App extends Component {
 addToCart = (product) =>{
     this.props.addToCart(product._id,1)
 }
-
+deleteToCart = (item) =>{
+    this.props.deleteToCart(item.productId,1)
+}
   render() {
       const {
           isLoading,
@@ -38,6 +40,7 @@ addToCart = (product) =>{
         <h1> CART </h1>
         <CartTable
             cart = {cart}
+            deleteToCart = {this.deleteToCart}
             />
       </div>
     );
@@ -54,6 +57,7 @@ const populateCartItems = (cart,products)=>({
 });
 
 
+
 const mapStateToProps = (state)=>({
     isLoading: state.product.isLoading,
     products: state.product.products,
@@ -64,5 +68,6 @@ const mapDispatchToProps = {
     fetchProducts,
     fetchCart,
     addToCart,
+    deleteToCart,
 }
 export default connect(mapStateToProps,mapDispatchToProps)(App);
