@@ -1,7 +1,14 @@
 body{
     background-color: grey;
+    font-family: 'Indie Flower',cursive;
+    color: white;
+    letter-spacing:1px;
 }
 .grand-total{
-    color: white;
+
     letter-spacing:2px;
+}
+
+h1{
+    text-align: center;
 }

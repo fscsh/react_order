@@ -21,6 +21,11 @@ const ProductImage = styled.img`
 const ProductName = styled.div`
   margin: 10px 0;
 `;
+const ProductPrice = styled.div`
+position: relative;
+top: -35px;
+float: right;
+`;
 
 const ProductGrid = ({ products , addToCart}) => (
   <Wrapper>
@@ -32,6 +37,9 @@ const ProductGrid = ({ products , addToCart}) => (
         <ProductName>
           {product.name}
         </ProductName>
+        <ProductPrice>
+          Price:{product.price}
+      </ProductPrice>
         <button onClick={() => addToCart(product)}>
             Add to Cart
         </button>
