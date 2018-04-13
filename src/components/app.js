@@ -16,31 +16,49 @@ addToCart = (product) =>{
     this.props.addToCart(product._id,1)
 }
 deleteToCart = (item) =>{
+    console.log('item',item);
     this.props.deleteToCart(item.productId,1)
 }
+
+
+
+
   render() {
       const {
           isLoading,
           products,
           cart,
       } = this.props;
-
-
       if (isLoading) {
           return <h2>Loading </h2>;
       }
-
+      let subTotalsPrice = [0];
+      let subTotalsItems = [0];
+      cart.items.map((item) => {
+      subTotalsPrice.push(item.product.price * item.quantity);
+      subTotalsItems.push(item.quantity);
+    });
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
     return (
       <div>
+
+          <h1> CART </h1>
+          <CartTable
+              cart = {cart}
+              deleteToCart = {this.deleteToCart}
+              />
+          <div className="grand-total-price grand-total">
+                  <span>Total Price:   </span>
+                  <span className="total-price">{subTotalsPrice.reduce(reducer)}</span>
+          </div>
+          <div className="grand-total-items grand-total">
+                  <span>Total Items:   </span>
+                  <span className="total-items">{subTotalsItems.reduce(reducer)}</span>
+          </div>
           <h1>Order Menu</h1>
           <ProductGrid
               products = {products}
               addToCart = {this.addToCart}
-            />
-        <h1> CART </h1>
-        <CartTable
-            cart = {cart}
-            deleteToCart = {this.deleteToCart}
             />
       </div>
     );

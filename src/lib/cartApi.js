@@ -13,7 +13,7 @@ export const fetch = async()=>getFromLocalStorage();
 
 export const addToCart = async(productId, quantity = 1) =>{
     const cart = await fetch();
-    console.log('add,cart',cart,'productId',productId);
+    // console.log('add,cart',cart,'productId',productId);
     const exists = cart.items.findIndex(item => item.productId === productId) > -1;
     if (exists) {
         throw{message:'Item exists'};
@@ -30,14 +30,14 @@ export const addToCart = async(productId, quantity = 1) =>{
     return newCart;
 }
 
-export const deleteToCart = async(productId, quantity) =>{
+export const deleteToCart = async(productId, quantity = 1) =>{
     const cart = await fetch();
-    // console.log('productId****',productId,'quantity',quantity);
-    console.log('cart.items',cart.items);
+    console.log('productId****',productId,'quantity',quantity);
+    // console.log('cart.items',cart.items);
     const newCart = {
         items: cart.items.filter(a => a.productId !== productId)
     }
-    console.log('newCart',newCart);
+    // console.log('newCart',newCart);
     saveToLocalStorage(newCart);
     return newCart;
 }
