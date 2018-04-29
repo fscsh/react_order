@@ -38,7 +38,7 @@ const ProductGrid = ({ products , addToCart}) => (
           {product.name}
         </ProductName>
         <ProductPrice>
-          Price:{product.price}
+
       </ProductPrice>
         <button onClick={() => addToCart(product)}>
             Add to Cart
