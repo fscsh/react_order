@@ -14,6 +14,7 @@ const Wrapper = styled.table`
   }
   tr:nth-child(even){
       background: #DDD;
+      color:black;
   }
 `;
 
